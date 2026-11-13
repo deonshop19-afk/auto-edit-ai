@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Edit Video Otomatis</title>
+<style>
+body {
+  background:#101827;
+  color:white;
+  font-family:Arial,sans-serif;
+  margin:0;
+  padding:20px;
+}
+.container {
+  max-width:600px;
+  margin:auto;
+}
+h1 {text-align:center;color:#38bdf8}
+.card {
+  background:#1e293b;
+  padding:20px;
+  border-radius:15px;
+  margin-top:20px;
+}
+input,textarea,button {
+  width:100%;
+  box-sizing:border-box;
+  padding:13px;
+  margin-top:12px;
+  border-radius:9px;
+  border:0;
+}
+textarea {min-height:100px}
+button {
+  background:#0284c7;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+video {width:100%;margin-top:15px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>AI EDIT VIDEO</h1>
+<p style="text-align:center">
+Edit video, voice over dan motion graphics
+</p>
+<div class="card">
+<h3>Upload Video</h3>
+<form action="/edit" method="POST"
+enctype="multipart/form-data">
+<input type="file" name="video"
+accept="video/*" required>
+<h3>Teks Voice Over</h3>
+<textarea name="text"
+placeholder="Masukkan naskah voice over"></textarea>
+<h3>Judul Video</h3>
+<input type="text" name="judul"
+placeholder="Masukkan judul video">
+<button type="submit">
+PROSES VIDEO
+</button>
+</form>
+</div>
+</div>
+</body>
+</html>
