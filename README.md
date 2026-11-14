@@ -1,11 +1,12 @@
-# Auto Edit AI - Versi Dasar
+# Auto Edit AI — Versi 2 (Beta)
 
-Aplikasi Flask sederhana untuk mengunggah video dan mengonversinya menjadi video vertikal 9:16 menggunakan FFmpeg.
+Aplikasi Flask + FFmpeg untuk menggabungkan 1–8 video, mode vlog 16:9, jualan/Reels 9:16, efek fade opsional, sisipan maksimal 5 gambar pendukung yang diunggah sendiri dengan efek zoom, musik opsional, dan preview/download hasil MP4.
 
-## Menjalankan
+**Belum ada** AI yang memahami isi video, pencarian gambar otomatis, generasi gambar AI, subtitle otomatis, atau motion graphic kompleks. Jangan menganggap fitur tersebut sudah tersedia.
 
-Gunakan hosting yang mendukung Docker. Build Dockerfile, jalankan container, dan buka port 5000.
+## Deploy
+Unggah isi folder ini ke **root** repository GitHub `auto-edit-ai` (jangan unggah folder pembungkus sebagai satu folder). Pastikan `templates/index.html` tetap berada dalam folder `templates` (nama harus tepat). Dockerfile sudah memasang FFmpeg. Atur port 10000 jika diminta hosting.
 
-## Catatan
+Untuk uji lokal: pasang FFmpeg dan `pip install -r requirements.txt`, lalu `python app.py`. Buka http://localhost:10000.
 
-Versi ini belum mempunyai AI voice-over, motion graphics, atau editing otomatis berbasis konten. File yang diunggah diproses sementara di server; gunakan hosting tepercaya dan jangan mengunggah video pribadi ke layanan publik yang tidak aman.
+Batas unggahan 180 MB; proses sinkron dapat memerlukan waktu lama dan membutuhkan CPU/RAM. Untuk penggunaan publik perlu sistem antrean, batas durasi, otentikasi, dan penyimpanan hasil yang lebih aman.
