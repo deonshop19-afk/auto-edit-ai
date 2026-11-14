@@ -1,2 +1,3 @@
 Flask>=3.0,<4
 Werkzeug>=3.0,<4
+# Optional for speech alignment: faster-whisper (enable via ENABLE_TRANSCRIPTION=1)

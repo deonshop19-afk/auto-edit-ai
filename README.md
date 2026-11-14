@@ -1,12 +1,16 @@
-# Auto Edit AI — Versi 2 (Beta)
+# Auto Edit AI V3 Beta
+## Upload
+Replace `app.py`, `templates/index.html`, `requirements.txt`, and `Dockerfile` in the existing GitHub repo. Do not upload the ZIP directly to GitHub expecting auto-extraction.
 
-Aplikasi Flask + FFmpeg untuk menggabungkan 1–8 video, mode vlog 16:9, jualan/Reels 9:16, efek fade opsional, sisipan maksimal 5 gambar pendukung yang diunggah sendiri dengan efek zoom, musik opsional, dan preview/download hasil MP4.
+## Features
+- Audio choices: extract original clip audio, upload VO, or mute.
+- Images appear over the video rather than being appended as separate clips.
+- Alternating full-frame and picture-in-picture.
+- Image keyword labels and optional speech timing.
 
-**Belum ada** AI yang memahami isi video, pencarian gambar otomatis, generasi gambar AI, subtitle otomatis, atau motion graphic kompleks. Jangan menganggap fitur tersebut sudah tersedia.
+## Important limitation
+Speech matching requires a speech-to-text model. It is OFF by default to avoid exhausting a small hosting instance. To enable, add `faster-whisper` to `requirements.txt` and set `ENABLE_TRANSCRIPTION=1` in hosting environment. The model downloads on first use. Set `WHISPER_MODEL=tiny` (default). With no transcription, images are distributed across the video and NOT speech-synchronized.
+This beta does not generate AI voices, auto-subtitles, or automatically select best scenes. VO is uploaded audio.
 
-## Deploy
-Unggah isi folder ini ke **root** repository GitHub `auto-edit-ai` (jangan unggah folder pembungkus sebagai satu folder). Pastikan `templates/index.html` tetap berada dalam folder `templates` (nama harus tepat). Dockerfile sudah memasang FFmpeg. Atur port 10000 jika diminta hosting.
-
-Untuk uji lokal: pasang FFmpeg dan `pip install -r requirements.txt`, lalu `python app.py`. Buka http://localhost:10000.
-
-Batas unggahan 180 MB; proses sinkron dapat memerlukan waktu lama dan membutuhkan CPU/RAM. Untuk penggunaan publik perlu sistem antrean, batas durasi, otentikasi, dan penyimpanan hasil yang lebih aman.
+## Test before deployment
+Try one short video and one image. Back up V2 first. Container memory/CPU limits may require lowering resolution or disabling transcription.
